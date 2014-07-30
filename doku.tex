@@ -202,10 +202,7 @@ Als weitere Funktion wollen wir es den Anwendern ermöglichen die Schriftart zu w
   \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
  public class ToolbarPanel extends JPanel {
  	
- 	JToolBar toolbar;
- 	private JToggleButton boldButton = new JToggleButton();
- 	private JToggleButton italicButton = new JToggleButton();
- 	private JToggleButton underlineButton = new JToggleButton();
+...
 
  	private JComboBox<String> fontscomboBox;
  	
@@ -222,23 +219,9 @@ Als weitere Funktion wollen wir es den Anwendern ermöglichen die Schriftart zu w
  	private void setFontBox(){
 		fontsComboBox = new JComboBox<String>();		
 		toolbar.add(fontscomboBox);		
-		
-		//do something here later
-
  	}
  	
- 	private void setButtons(){
-
- 		toolbar.add(boldButton);
- 		toolbar.add(italicButton);
- 		toolbar.add(underlineButton);
-
- 		boldButton.setIcon(new ImageIcon("src/img/font_bold_icon&32.png"));
- 		italicButton.setIcon(new ImageIcon("src/img/font_italic_icon&32.png"));
- 		underlineButton.setIcon(new ImageIcon("src/img/font_underline_icon&32.png"));
- 		
-
- 	}
+...
  	
  }
   \end{lstlisting}
@@ -287,13 +270,61 @@ Versuchen wir das ganze Programm mal zu bauen und schauen wir uns das vorläufige
 Das sieht unserem Mock--up schon sehr ähnlich. An dieser Stelle kann man jetzt noch versuchen, die Anordnung schöner zu gestalten oder vielleicht ein paar Anpassungen vorzunehmen, aber für unsere Zwecke in diesem Tutorial sollte das ausreichen. 
 
 Wenn man probiert auf die Buttons zu klicken passiert allerdings nichts. Das liegt natürlich daran, dass wir bisher noch gar keine Anwendungslogik implementiert haben. Darum geht es im nächsten Kapitel
- 
+ \newpage
 \section{Anwendungs--Logik}
 
 Der \enquote{Rahmen} unserer Anwendung steht bereits und sieht auch schon ganz gut aus. Was aber noch fehlt, sind die Methoden, mit welchen wir unsere Toolbar funktionsfähig machen können.
 
+\subsection{System--Schriftarten laden}
+
 Der erste Schritt soll sein, in unserem Dropdown--Menu alle dem System bekannten Schriftarten anzuzeigen und für den Anwender auswählbar zu machen. Dafür wechseln wir zurück in die Klasse \lstinline[basicstyle=\ttfamily]{ToolbarPanel}. In der Methode \lstinline[basicstyle=\ttfamily]{setFontBox()} nutzen wir schon einen Konstruktor für unsere \lstinline[basicstyle=\ttfamily]{JComboBox}, allerdings ohne Parameter. Übergibt man allerdings ein Array von Objekten, dann werden diese in der Liste angezeigt. Wir erstellen uns daher ein String--Array mit den Namen \lstinline[basicstyle=\ttfamily]{fonts}.
 
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 	
+...
+ 	
+ 	private void setFontBox(){
+		fontsComboBox = new JComboBox<String>(fonts);		
+		toolbar.add(fontscomboBox);		
+ 	}
+ 	
+...
+
+ }
+  \end{lstlisting}
+
+Da unser \lstinline[basicstyle=\ttfamily]{fonts}--Array noch leer ist, müssen wir eine Methode finden, mit welcher wir die System-Schriftarten laden können. Die Lösung des Problems bietet uns die Klasse \lstinline[basicstyle=\ttfamily]{java.awt.GraphicsEnvironment}. Diese Klasse stellt unter Anderem Methoden für den Zugriff auf die Schriftarten des Systems bereit. Dafür müssen wir uns zuerst mit der Factory--Methode \lstinline[basicstyle=\ttfamily]{getLocalGraphicsEnvironment()} ein GraphicsEnviroment--Objekt erstellen und können anschließend mit der Methode \lstinline[basicstyle=\ttfamily]{getAvailableFontFamilyNames()} auf alle dem System bekannten Schriftarten zugreifen. Wir nutzen hier speziell diese Methode, um Duplikate auszuschließen.
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 	
+ ...
+ 	
+ 	private void setFontBox(){
+ 		GraphicsEnvironment enviroment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+ 		fonts = enviroment.getAvailableFontFamilyNames();
+		fontsComboBox = new JComboBox<String>(fonts);		
+		toolbar.add(fontscomboBox);		
+ 	}
+ 	
+...
+ 	
+ }
+  \end{lstlisting}
+
+Starten wir nun die Anwendung erneut, sehen wir eine Liste aller verfügbaren Schriftarten in unserem DropDown-Menü. Sehr gut! Was jetzt noch fehlt, sind Aktionen, die beim Klicken auf einen Button oder beim Auswählen einer Schriftart ausgeführt werden. Die Lösung dafür sind \enquote{Listener}.
+
+\subsection{Listener}
+
+Da wir mit einer interaktiven graphischen Oberfläche arbeiten, die in Abhängigkeit von einer Nutzerinteraktion (z.B. Klick auf den Button \enquote{Bold}) ihren Zustand verändert, müssen wir dafür sorgen, dass das Programm auf die Eingaben des Benutzer \textit{reagiert}. Um dies zu ermöglichen, benötigen wir sog. Listener--Klassen, die bei einer Interaktion eine bestimmte Methode aufrufen, in der wir festlegen, was passieren soll.
+
+Jedes unserer interaktiven Toolbar Elemente (die Buttons und das DropDown--Menü) bekommen eine eigene Listener--Klasse, die jeweils eine Aktion ausführt, sobald ein Element angeklickt wurde.
+
+Zur Implementierung der Listener gibt es verschiedene Möglichkeiten: Man könnte a) für jeden Button eine eigene Klasse anlegen, b) eine gemeinsame Listener--Klasse, die je nachdem welcher Button sie aufruft unterschiedliche Aktionen durchführt, oder c) jeweils anonyme innere Klasse als Listener erstellen.
+
+In diesem Tutorial entscheiden wir uns für die letzte Möglichkeit, da diese uns ein paar Vorteile bietet. Welche das sind, sehen wir gleich. Schauen wir uns zuerst mal die Implementierung an:
 
   \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
  public class ToolbarPanel extends JPanel {
@@ -302,30 +333,17 @@ Der erste Schritt soll sein, in unserem Dropdown--Menu alle dem System bekannten
  	private JToggleButton boldButton = new JToggleButton();
  	private JToggleButton italicButton = new JToggleButton();
  	private JToggleButton underlineButton = new JToggleButton();
-
- 	private JComboBox<String> fontscomboBox;
- 	
- 	String[] fonts;
  	
  	public ToolbarPanel(){
  		
  		toolbar = new JToolBar();
- 		this.setFontBox();
  		this.setButtons();
  		this.add(toolbar);
  		
  	}
  	
- 	private void setFontBox(){
-		fontsComboBox = new JComboBox<String>(fonts);		
-		toolbar.add(fontscomboBox);		
-		
-		//do something here later
-
- 	}
- 	
  	private void setButtons(){
-
+ 	
  		toolbar.add(boldButton);
  		toolbar.add(italicButton);
  		toolbar.add(underlineButton);
@@ -333,14 +351,15 @@ Der erste Schritt soll sein, in unserem Dropdown--Menu alle dem System bekannten
  		boldButton.setIcon(new ImageIcon("src/img/font_bold_icon&32.png"));
  		italicButton.setIcon(new ImageIcon("src/img/font_italic_icon&32.png"));
  		underlineButton.setIcon(new ImageIcon("src/img/font_underline_icon&32.png"));
- 		
-
  	}
  	
  }
-  \end{lstlisting}
 
-Da unser \lstinline[basicstyle=\ttfamily]{fonts}--Array noch leer ist, müssen wir eine Methode finden, mit welcher wir die System-Schriftarten laden können. Die Lösung des Problems bietet uns das Paket \lstinline[basicstyle=\ttfamily]{java.awt.GraphicsEnvironment}.
+
+\end{lstlisting}
+
+- panel muss toolbar kennen.
+
 
 
 \end{document}

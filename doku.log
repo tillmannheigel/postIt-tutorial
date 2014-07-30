@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.7)  30 JUL 2014 10:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.7)  30 JUL 2014 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,86 +419,129 @@ Overfull \hbox (5.08984pt too wide) in paragraph at lines 198--199
 lle ist der [][][]
  []
 
-
-Overfull \hbox (33.00385pt too wide) in paragraph at lines 206--207
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (45.00397pt too wide) in paragraph at lines 207--208
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (63.00415pt too wide) in paragraph at lines 208--210
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 210.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 207.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 210.
-
-Overfull \hbox (153.00507pt too wide) in paragraph at lines 232--233
-[][][][][][][][][][][][][][][][][][][][][][][] 
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 207.
+ [7]
+Overfull \hbox (5.50995pt too wide) in paragraph at lines 233--234
+\OT1/cmr/m/n/10 erm[]oglicht. Zur Aus-wahl ste-hen uns hier ver-schie-de-ne Ein
+-ga-be-fel-der: [][][],
  []
 
 
-Overfull \hbox (177.00531pt too wide) in paragraph at lines 233--234
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (213.00568pt too wide) in paragraph at lines 234--236
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[7]
-Overfull \hbox (39.0039pt too wide) in paragraph at lines 263--264
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 250--251
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (15.00366pt too wide) in paragraph at lines 264--265
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 251--252
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 268--269
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 255--256
 [][][][][][][][][][][] 
  []
 
 <fenster.png, id=44, 311.2428pt x 229.8186pt>
 File: fenster.png Graphic file (type png)
  <use fenster.png>
-Package pdftex.def Info: fenster.png used on input line 277.
+Package pdftex.def Info: fenster.png used on input line 264.
 (pdftex.def)             Requested size: 345.0pt x 254.7615pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8]
-Overfull \hbox (4.05716pt too wide) in paragraph at lines 291--292
-[]\OT1/cmr/m/n/10 Der ers-te Schritt soll es sein, un-se-rem Dropdown--Menu al-
-le be-kann-ten Schrift-
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 289--290
+[][][][][][][][][][][][][][][][][] 
  []
 
-[9 <./fenster.png>] (./doku.aux)
+[9 <./fenster.png>]
+Overfull \hbox (42.61017pt too wide) in paragraph at lines 298--299
+\OT1/cmr/m/n/10 Daf[]ur m[]ussen wir uns zu-erst mit der Factory--Methode [][][
+][]
+ []
+
+
+Overfull \hbox (2.88794pt too wide) in paragraph at lines 298--299
+\OT1/cmr/m/n/10 tho-de [][][][] auf al-le dem Sys-tem be-kann-ten Schrift-
+ []
+
+
+Overfull \hbox (249.00604pt too wide) in paragraph at lines 306--307
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 307--308
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 308--309
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (8.14064pt too wide) in paragraph at lines 321--322
+\OT1/cmr/m/n/10 Da wir mit ei-ner in-ter-ak-ti-ven gra-phi-schen Ober-fl[]ache 
+ar-bei-ten, die in Abh[]angigkeit
+ []
+
+
+Overfull \hbox (6.88947pt too wide) in paragraph at lines 323--324
+[]\OT1/cmr/m/n/10 Jedes un-se-rer in-ter-ak-ti-ven Tool-bar Ele-men-te (die But
+-tons und das DropDown--
+ []
+
+[10]
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 333--334
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 334--335
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 335--337
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (153.00507pt too wide) in paragraph at lines 351--352
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (177.00531pt too wide) in paragraph at lines 352--353
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (213.00568pt too wide) in paragraph at lines 353--354
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[11] (./doku.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6024 strings out of 493117
- 80054 string characters out of 6135434
- 198469 words of memory out of 5000000
- 9386 multiletter control sequences out of 15000+600000
+ 6037 strings out of 493117
+ 80279 string characters out of 6135434
+ 197469 words of memory out of 5000000
+ 9399 multiletter control sequences out of 15000+600000
  10639 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,8n,40p,830b,1600s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,40p,864b,1604s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -510,10 +553,10 @@ texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on doku.pdf (9 pages, 232848 bytes).
+Output written on doku.pdf (11 pages, 239568 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 94 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
