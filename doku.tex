@@ -1,0 +1,346 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+ \usepackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx,xcolor}
+\usepackage{listings}
+\lstset{language=Java}
+\author{Tillmann Heigel}
+\title{Tutorial einer PostIt - Anwendung}
+\begin{document}
+
+\section*{Tutorial: Post-It--Anwendung}
+
+In diesem Tutorial werden wir lernen wie man mit der Programmiersprache Java und der in Java integrierten Bibliothek\footnote{Eine Programmbibliothek ist eine Sammlung von bereitgestellten Klassen und Funktionen, die einen bestimmten Zweck erfüllen. Im Falle von \lstinline[basicstyle=\ttfamily]{javax.swing.*} das Darstellen einer graphischen Oberfläche für eine Programm.} \lstinline[basicstyle=\ttfamily]{javax.swing.*} ein Fenster erstellt mit welchem man Text formatieren und darstellen sowie diese Notizen speichern und wieder laden kann.
+
+\section{ GUI}
+
+Als GUI (Abk. GUI von graphical user interface) wird die Benutzerschnittstelle eines computerprogramms bezeichnet, mit der ein Mensch mittels Eingabegerät-en (z.B. Maus oder Touchscreen) interagiert. Für ein Programm, das eine grafische Oberfläche bekommen soll, macht es Sinn sich zuallererst Gedanken darüber machen, was die Hauptfunktionen der Anwendung sind und wie diese auf einer graphischen Benutzeroberfläche dargestellt werden können. Die dabei entstehenden Skizzen nennt man auch \enquote{Mock-Ups}\footnote{siehe dazu http://de.wikipedia.org/wiki/Mock-up}. Aus den Mock-ups leitet man anschließend nicht-funktionalen Anforderungen, die das Aussehen der fertigen Anwendung beschreiben ab.
+
+\subsection{Ein erstes Mock-up}
+
+Für unser Programm, die Post-It--Anwendung steht ganz klar die Schreibfläche, also das eigentliche Post-It im Mittelpunkt. Damit die Anwender die Schreibfläche auch als Post-It erkennen, sollte sie im klassischen gelb dargestellt werden (siehe Abbildung). Darauf soll man später seine Notizen schreiben können.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{flaeche}
+\caption{Unser erstes Mockup-Element. Das Post-It, eine gelbe Fläche. Wirklich großartig, aber sind wir jetzt schon fertig?}
+\label{1}
+\end{center}
+\end{figure} 
+
+
+Da man den Text später auch formatieren können soll, fehlt uns nun aber noch eine Werkzeugleiste, wie wir sie aus Programmen wie Word (Microsoft) oder Writer (Open-/LibreOffice) kennen. Wie üblich ordnen wir sie im oberen Bereich der Anwendung an, damit sie schnell gefunden werden kann. 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{flaeche_toolbar}
+\caption{Unser Mockup-Element. Jetzt mit einem seperaten Bereich für die Werkzeugleiste.}
+\label{2}
+\end{center}
+\end{figure} 
+
+Exemplarisch bauen wir auch gleich die drei wichtigsten Buttons \enquote{B} (engl. bold = fett schreiben), \enquote{I} (engl. italic = kursiv schreiben) und \enquote{U} (engl. underlined = unterstrichen schreiben) sowie eine Dropdown-Element zum Auswählen der Schriftart ein, damit wir uns das ganze etwas besser vorstellen können.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{flaeche_toolbar_buttons_dropdown}
+\caption{Unser Mockup-Element. So soll die Werkzeugleiste am Ende in etwa aussehen.}
+\label{3}
+\end{center}
+\end{figure} 
+
+Die Werkzeugleiste sieht schon ganz gut aus, was jetzt noch fehlt ist der letzte Schliff am Textbereich. Klar ist, dass wir viel Platz für die Kreativität der Schreibenden lassen müssen, aber evtl. gibt es noch die ein oder andere Information, die der computer besser weiß. Was könnte das sein? Wir könnten zum Beispiel rechts oben ein Datum einfügen. Außerdem wollen wir eine Überschrift haben, die \enquote{sticky} ist, d.h. sie soll immer sichtbar sein, auch wenn der Text evtl. gescrollt werden muss.
+
+Große Firmen wie Apple oder Google haben in den vergangenen Jahren sehr viel Geld investiert, um herauszufinden, wie eine graphische Benutzerschnittstelle gestaltet sein muss, damit Menschen sie \textit{gerne} nutzen. Ein Ergebnis daraus war beispielsweise der Touchscreen des iPhones oder das skeuomorphe\footnote{Skeuomorphismus beschreibt die Strategie, sich im Software-Design an Gegenständen und Werkzeugen aus der realen Welt zu orientieren, um die Funktion von Programmen oder Systemen zu erklären.} Design des Betriebssystems iOS (das aber mittlerweile seit iOS 7 durch den sog. \enquote{Minimalismus} abgelöst wurde).
+
+\paragraph{Anforderungen} Aus dem eben erstellten Mock-up können wir einen Teil der Anforderungen an die Anwendung ableiten, die wir hier noch einmal zusammenfassen:
+
+\begin{itemize}
+\item Die Graphische Oberfläche der Anwendung soll aus einem Fenster bestehen, das zwei Bereiche beinhaltet.
+\item Der Bereich oben repräsentiert die Werkzeugleiste der Anwendung und nimmt etwa 1/6 bis 1/5 des Fensters ein. 
+\item Der größere Bereich darunter rerpäsentiert einen Notizzettel. Er soll eine gelbe Farbe besitzen. Weiterhin soll man Text eingeben können und diesen unterschiedlich(!) formatieren können. 
+\end{itemize}
+
+\subsection{Implementierung mit javax.swing}
+
+Die Programmbibliothek javax.swing (ab jetzt nur noch Swing genannt), ist eine Bibliothek, die im Java Developer Kit enthalten ist, die es relativ einfach ermöglicht Grafische Oberflächen mit Java code zu erzeugen. Neben Swing existieren noch einige weitere Bibliotheken, die Oberflächen erzeugen können, in diesem Beispiel möchten wir uns aber auf Swing beschränken.
+
+Zunächst einmal müssen wir ein Fenster erzeugen, in welchem unsere Anwendung ihre Inhalte bereit stellt. Da wir später noch einige Anpassungen an der Klasse vornehmen wollen, erweitern wir die Klasse \lstinline[basicstyle=\ttfamily]{javax.swing.JFrame} und erstellen eine eigene Klasse NotesFrame. Achtung: Immer dort, wo bisher im code Punkte stehen, kommt später noch etwas hinzu:
+
+\begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+public class NotesFrame extends JFrame {
+	
+...
+
+}
+\end{lstlisting}
+
+Um den code sauber zu trennen, schreiben wir uns noch eine Hauptklasse, in der die Anwendung (und der soeben erstellte Frame) gestartet wird: 
+
+\begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+public class NotesMain{
+	
+	static int x = 420;
+	static int y = 320;
+	
+	public static void main(String[] args) {
+		...
+		NotesFrame frame = new NotesFrame(...);
+		frame.setSize(x, y);
+		frame.setVisible(true);
+	}
+}
+\end{lstlisting}
+
+Nachdem wir jetzt eine Haupt-Klasse und eine Frame-Klasse haben, können wir uns um das Layout kümmern. Da wir im Mock-up schon relativ klar definiert haben, welche GUI-Bereiche es in der Anwendung gibt, müssen wir sie nun noch im code implementieren. Um uns die Arbeit etwas zu erleichtern, gibt es auch für diese Aufgabe Bibliotheken, die uns den code auf ein Minimum reduzieren lassen: Die \textit{Layout--Manager}.
+
+\paragraph{Layout--Manager}
+
+Normalerweise müsste man in GUIs pixelgenau festlegen, wo sich welches Element befindet und wie es sich verhält, wenn sich die Fenstergröße ändert. Die Layout--Manager unterstützen beim Entwickeln von GUIs, indem sie alle nötigen Berechnung für die Entwickler übernehmen und dabei bestimmte Strategien verfolgen. Jeder Layout--Manager verfolgt dabei eine eigene Strategie:
+
+\begin{itemize}
+\item \textbf{FlowLayout}: Alle Elemente werden nebeneinander abgelegt. Ist die Zeile voll, wird in der nächsten Zeile weiter gemacht.
+\item \textbf{GridLayout}: Die Elemente werden in einem Gitter mit einer zuvor festgelegten Anzahl von Zeilen und Spalten abgelegt.
+\item \textbf{BorderLayout}: Das BorderLayout ist das klassische Fensterlayout. Es gibt fünf Bereiche für Elemente: oben, unten, links, rechts und in der Mitte. 
+\item \textbf{cardLayout}: Arbeitet wie ein Kartenstapel und kann Elemente ein- und ausblenden.
+\item \textbf{GridBagLayout}: Ähnlich dem GridLayout, kann aber noch spezifischer angepasst werden.
+\end{itemize}
+
+An dieser Stelle ist noch festzuhalten, dass sich alle Layout-Manager beliebig schachteln lassen und so beliebig komplexe Layouts erstellt werden können. 
+
+Für die Post-It--Anwendung entscheiden wir uns, da wir einen Bereich oben und einen Hauptbereich in der Mitte haben, für das BorderLayout.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{BorderLayout}
+\caption{Das BorderLayout und seine Positionsangaben}
+\label{3}
+\end{center}
+\end{figure} 
+
+Dafür erweitern wir unsere Klasse \lstinline[basicstyle=\ttfamily]{NotesFrame} um ein Feld \lstinline[basicstyle=\ttfamily]{mainPanel} und einen Konstruktor, der diesem den Borderlayout--LayoutManager zuweist. Das ganze funktioniert wie folgt:
+
+\begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+public class NotesFrame extends JFrame {
+	
+	JPanel mainPanel;
+
+	public NotesFrame(){	
+				
+		this.mainPanel = new JPanel();
+		this.mainPanel.setLayout(new BorderLayout());					
+		this.getcontentPane().add(mainPanel);
+		pack();		
+		
+		this.setDefaultcloseOperation(EXIT_ON_CLOSE);
+	}
+\end{lstlisting}
+
+Im Konstruktor der Klasse erstellen wir zunächst ein neues Objekt vom Typ \lstinline[basicstyle=\ttfamily]{JPanel}. Mit der Methode \lstinline[basicstyle=\ttfamily]{setLayout(new BorderLayout())} wird dem soeben erstellen JPanel ein BorderLayout--Manager zugewiesen. Zuletzt wird das \lstinline[basicstyle=\ttfamily]{mainPanel} mit der Methode \lstinline[basicstyle=\ttfamily]{add(mainPanel)} dem \lstinline[basicstyle=\ttfamily]{contentPane}\footnote{contentPane ist ein container, dem alle Panel-Elemente hinzugefügt werden müssen, die angezeigt werden sollen.} zugewiesen.
+
+Damit haben wir nun ein Fenster mit einem JPanel und einem LayoutManager. Damit sind die Grundlagen für die GUI geschaffen. Was nun noch fehlt, ist das Einbinden und Konfigurieren unserer Oberflächenelemente.
+
+\subsection{Toolbar}
+
+ JToolBar ist eine GUI-Komponente, mit welcher man Steuerelemente, wie z.B. Buttons o.Ä. anzeigen und bedienbar machen kann. Wir erstellen uns als in einem ersten Schritt ein JPanel, das selbst wiederum eine besitzt JToolbar, in der wir unsere Buttons (bold, italic, underlined) einfügen und Anpassungen vornehmen können. Passenderweise benennen wir das JPanel ToolbarPanel: 
+ 
+ \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+public class ToolbarPanel extends JPanel {
+	
+	JToolBar toolbar;
+	
+	public ToolbarPanel(){
+		
+		toolbar = new JToolBar();
+		this.add(toolbar);
+		
+	}
+}
+ \end{lstlisting}
+ 
+ Damit haben wir schon das wichtigste geschafft. Unsere \lstinline[basicstyle=\ttfamily]{JToolBar} muss nun mit Leben gefüllt werden, um den Sinn Ihres Daseins zu erfüllen. Fangen wir damit an, vier Buttons hinzuzufügen:
+ 
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 	
+ 	JToolBar toolbar;
+ 	private JToggleButton boldButton = new JToggleButton();
+ 	private JToggleButton italicButton = new JToggleButton();
+ 	private JToggleButton underlineButton = new JToggleButton();
+ 	
+ 	public ToolbarPanel(){
+ 		
+ 		toolbar = new JToolBar();
+ 		this.setButtons();
+ 		this.add(toolbar);
+ 		
+ 	}
+ 	
+ 	private void setButtons(){
+ 	
+ 		toolbar.add(boldButton);
+ 		toolbar.add(italicButton);
+ 		toolbar.add(underlineButton);
+
+ 		boldButton.setIcon(new ImageIcon("src/img/font_bold_icon&32.png"));
+ 		italicButton.setIcon(new ImageIcon("src/img/font_italic_icon&32.png"));
+ 		underlineButton.setIcon(new ImageIcon("src/img/font_underline_icon&32.png"));
+ 	}
+ 	
+ }
+  \end{lstlisting}
+  
+Das Hinzufügen von Buttons funktioniert genauso, wie das Hinzufügen der \lstinline[basicstyle=\ttfamily]{JToolBar} zum \lstinline[basicstyle=\ttfamily]{JPanel}: Mit der Methode \lstinline[basicstyle=\ttfamily]{add(...)} wird es zu einer \enquote{Kindklassen} der \lstinline[basicstyle=\ttfamily]{JToolBar}. 
+
+Im Beispiel nutzen wir übrigens drei \lstinline[basicstyle=\ttfamily]{JToggleButton}s. Im Gegensatz zu  \lstinline[basicstyle=\ttfamily]{JButton}s blieben diese gedrückt, nachdem man sie einmal angeklickt hat, wohingegen eine \lstinline[basicstyle=\ttfamily]{JButton}s einen einmaligen \textit{klick} auslösen und anschließend wieder den alten Zustand annehmen. Für unsere Anwendungsfälle ist der \lstinline[basicstyle=\ttfamily]{JToggleButton} daher für die Textformatierung besser geeignet. Wir erweitern die Methode \lstinline[basicstyle=\ttfamily]{setButtons} außerdem noch um weitere Methoden, welche Grafiken auf die Buttons setzen.  
+
+Als weitere Funktion wollen wir es den Anwendern ermöglichen die Schriftart zu wechseln. Dafür müssen wir noch das DropDown-Menü aus dem Mock-up Implementieren. Das entsprechende Element in Swing heißt: \lstinline[basicstyle=\ttfamily]{JcomboBox}.
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 	
+ 	JToolBar toolbar;
+ 	private JToggleButton boldButton = new JToggleButton();
+ 	private JToggleButton italicButton = new JToggleButton();
+ 	private JToggleButton underlineButton = new JToggleButton();
+
+ 	private JComboBox<String> fontscomboBox;
+ 	
+ 	
+ 	public ToolbarPanel(){
+ 		
+ 		toolbar = new JToolBar();
+ 		this.setFontBox();
+ 		this.setButtons();
+ 		this.add(toolbar);
+ 		
+ 	}
+ 	
+ 	private void setFontBox(){
+		fontsComboBox = new JComboBox<String>();		
+		toolbar.add(fontscomboBox);		
+		
+		//do something here later
+
+ 	}
+ 	
+ 	private void setButtons(){
+
+ 		toolbar.add(boldButton);
+ 		toolbar.add(italicButton);
+ 		toolbar.add(underlineButton);
+
+ 		boldButton.setIcon(new ImageIcon("src/img/font_bold_icon&32.png"));
+ 		italicButton.setIcon(new ImageIcon("src/img/font_italic_icon&32.png"));
+ 		underlineButton.setIcon(new ImageIcon("src/img/font_underline_icon&32.png"));
+ 		
+
+ 	}
+ 	
+ }
+  \end{lstlisting}
+
+\subsection{Post-It}  
+ 
+In den vorherigen Schritten haben wir zunächst eine Hauptklasse erstellt. Diese erstellt ein Fenster (\lstinline[basicstyle=\ttfamily]{JFrame}) mit der von uns abgeleiteten Klasse \lstinline[basicstyle=\ttfamily]{NotesFrame}. Im dritten Schritt haben wir die Toolbar (\lstinline[basicstyle=\ttfamily]{JToolBar}) erstellt und darin die Buttons (\lstinline[basicstyle=\ttfamily]{JToggleButtons}) und ein Dropdown-Menü (\lstinline[basicstyle=\ttfamily]{JcomboBox}) erstellt. Was nun noch fehlt, ist der Eingabebereich unserer Anwendung, sozusagen das Post-It. 
+
+Um die zuvor aufgestellten Anforderungen bezüglich des Post-Its umzusetzen, müssen wir nun ein Swing-Objekt finden, dass die Eingabe von Text ermöglicht. Zur Auswahl stehen uns hier verschiedene Eingabefelder: \lstinline[basicstyle=\ttfamily]{JTextField}, \lstinline[basicstyle=\ttfamily]{JTextArea} oder das \lstinline[basicstyle=\ttfamily]{JTextPane}. Nach genauerer Betrachtung wird man aber feststellen, dass sich eigentlich für unseren Zweck nur eines eignet. \lstinline[basicstyle=\ttfamily]{JTextfield} ist lediglich ein einzeiliges Textfeld und fliegt damit raus.\lstinline[basicstyle=\ttfamily]{ JTextArea} ist mehrzeilig, lässt jedoch nur die Formatierung des gesamten Textes auf einmal zu. \lstinline[basicstyle=\ttfamily]{JTextPane} erfüllt schließlich die Anforderung, ist aber etwas komplizierter anzupassen.
+  
+Als letzten Schritt für die Entwicklung unserer GUI, müssen wir alles noch in unserer Fensterklasse NotesFrame zusammenfügen. Dies geschieht im Konstruktor der Klasse \lstinline[basicstyle=\ttfamily]{NotesFrame}.
+  
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+  public class NotesFrame extends JFrame {
+  	
+  	JPanel mainPanel;
+  	ToolbarPanel toolbar;
+  	JTextPane textpane;
+  
+  	public NotesFrame(){	
+  				
+  		this.mainPanel = new JPanel();
+  		toolbar = new ToolbarPanel();
+  		textpane = new JtextPane();
+  		
+		mainPanel.add(toolbar ,BorderLayout.PAGE_START);
+		mainPanel.add(textpane,BorderLayout.CENTER);
+  		this.getcontentPane().add(mainPanel);
+  		
+  		pack();		
+  		this.setDefaultcloseOperation(EXIT_ON_CLOSE);
+  	}
+  \end{lstlisting}
+  
+
+Versuchen wir das ganze Programm mal zu bauen und schauen wir uns das vorläufige Ergebnis doch mal genauer an:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{fenster}
+\caption{Das BorderLayout und seine Positionsangaben}
+\label{3}
+\end{center}
+\end{figure} 
+
+Das sieht unserem Mock--up schon sehr ähnlich. An dieser Stelle kann man jetzt noch versuchen, die Anordnung schöner zu gestalten oder vielleicht ein paar Anpassungen vorzunehmen, aber für unsere Zwecke in diesem Tutorial sollte das ausreichen. 
+
+Wenn man probiert auf die Buttons zu klicken passiert allerdings nichts. Das liegt natürlich daran, dass wir bisher noch gar keine Anwendungslogik implementiert haben. Darum geht es im nächsten Kapitel
+ 
+\section{Anwendungs--Logik}
+
+Der \enquote{Rahmen} unserer Anwendung steht bereits und sieht auch schon ganz gut aus. Was aber noch fehlt, sind die Methoden, mit welchen wir unsere Toolbar funktionsfähig machen können.
+
+Der erste Schritt soll sein, in unserem Dropdown--Menu alle dem System bekannten Schriftarten anzuzeigen und für den Anwender auswählbar zu machen. Dafür wechseln wir zurück in die Klasse \lstinline[basicstyle=\ttfamily]{ToolbarPanel}. In der Methode \lstinline[basicstyle=\ttfamily]{setFontBox()} nutzen wir schon einen Konstruktor für unsere \lstinline[basicstyle=\ttfamily]{JComboBox}, allerdings ohne Parameter. Übergibt man allerdings ein Array von Objekten, dann werden diese in der Liste angezeigt. Wir erstellen uns daher ein String--Array mit den Namen \lstinline[basicstyle=\ttfamily]{fonts}.
+
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 	
+ 	JToolBar toolbar;
+ 	private JToggleButton boldButton = new JToggleButton();
+ 	private JToggleButton italicButton = new JToggleButton();
+ 	private JToggleButton underlineButton = new JToggleButton();
+
+ 	private JComboBox<String> fontscomboBox;
+ 	
+ 	String[] fonts;
+ 	
+ 	public ToolbarPanel(){
+ 		
+ 		toolbar = new JToolBar();
+ 		this.setFontBox();
+ 		this.setButtons();
+ 		this.add(toolbar);
+ 		
+ 	}
+ 	
+ 	private void setFontBox(){
+		fontsComboBox = new JComboBox<String>(fonts);		
+		toolbar.add(fontscomboBox);		
+		
+		//do something here later
+
+ 	}
+ 	
+ 	private void setButtons(){
+
+ 		toolbar.add(boldButton);
+ 		toolbar.add(italicButton);
+ 		toolbar.add(underlineButton);
+
+ 		boldButton.setIcon(new ImageIcon("src/img/font_bold_icon&32.png"));
+ 		italicButton.setIcon(new ImageIcon("src/img/font_italic_icon&32.png"));
+ 		underlineButton.setIcon(new ImageIcon("src/img/font_underline_icon&32.png"));
+ 		
+
+ 	}
+ 	
+ }
+  \end{lstlisting}
+
+Da unser \lstinline[basicstyle=\ttfamily]{fonts}--Array noch leer ist, müssen wir eine Methode finden, mit welcher wir die System-Schriftarten laden können. Die Lösung des Problems bietet uns das Paket \lstinline[basicstyle=\ttfamily]{java.awt.GraphicsEnvironment}.
+
+
+\end{document}
