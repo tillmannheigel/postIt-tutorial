@@ -12,7 +12,7 @@
 
 \section*{Tutorial: Post-It--Anwendung}
 
-In diesem Tutorial werden wir lernen wie man mit der Programmiersprache Java und der in Java integrierten Bibliothek\footnote{Eine Programmbibliothek ist eine Sammlung von bereitgestellten Klassen und Funktionen, die einen bestimmten Zweck erfüllen. Im Falle von \lstinline[basicstyle=\ttfamily]{javax.swing.*} das Darstellen einer graphischen Oberfläche für eine Programm.} \lstinline[basicstyle=\ttfamily]{javax.swing.*} ein Fenster erstellt mit welchem man Text formatieren und darstellen sowie diese Notizen speichern und wieder laden kann.
+In diesem Tutorial werden wir lernen wie man mit der Programmiersprache Java und der in Java integrierten Bibliothek\footnote{Eine Programmbibliothek ist eine Sammlung von bereitgestellten Klassen und Funktionen, die einen bestimmten Zweck erfüllen. Im Falle von \lstinline[basicstyle=\ttfamily]{javax.swing.*} das Darstellen einer graphischen Oberfläche für eine Programm.} \lstinline[basicstyle=\ttfamily]{javax.swing.*} ein Fenster erstellt mit welchem man Text formatieren und darstellen  kann.
 
 \section{ GUI}
 
@@ -73,7 +73,7 @@ Zunächst einmal müssen wir ein Fenster erzeugen, in welchem unsere Anwendung ihr
 \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
 public class NotesFrame extends JFrame {
 	
-...
+//...
 
 }
 \end{lstlisting}
@@ -87,8 +87,8 @@ public class NotesMain{
 	static int y = 320;
 	
 	public static void main(String[] args) {
-		...
-		NotesFrame frame = new NotesFrame(...);
+		//...
+		NotesFrame frame = new NotesFrame(//...);
 		frame.setSize(x, y);
 		frame.setVisible(true);
 	}
@@ -202,7 +202,7 @@ Als weitere Funktion wollen wir es den Anwendern ermöglichen die Schriftart zu w
   \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
  public class ToolbarPanel extends JPanel {
  	
-...
+//...
 
  	private JComboBox<String> fontscomboBox;
  	
@@ -221,7 +221,7 @@ Als weitere Funktion wollen wir es den Anwendern ermöglichen die Schriftart zu w
 		toolbar.add(fontscomboBox);		
  	}
  	
-...
+//...
  	
  }
   \end{lstlisting}
@@ -270,7 +270,8 @@ Versuchen wir das ganze Programm mal zu bauen und schauen wir uns das vorläufige
 Das sieht unserem Mock--up schon sehr ähnlich. An dieser Stelle kann man jetzt noch versuchen, die Anordnung schöner zu gestalten oder vielleicht ein paar Anpassungen vorzunehmen, aber für unsere Zwecke in diesem Tutorial sollte das ausreichen. 
 
 Wenn man probiert auf die Buttons zu klicken passiert allerdings nichts. Das liegt natürlich daran, dass wir bisher noch gar keine Anwendungslogik implementiert haben. Darum geht es im nächsten Kapitel
- \newpage
+\newpage
+\newpage
 \section{Anwendungs--Logik}
 
 Der \enquote{Rahmen} unserer Anwendung steht bereits und sieht auch schon ganz gut aus. Was aber noch fehlt, sind die Methoden, mit welchen wir unsere Toolbar funktionsfähig machen können.
@@ -283,14 +284,14 @@ Der erste Schritt soll sein, in unserem Dropdown--Menu alle dem System bekannten
   \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
  public class ToolbarPanel extends JPanel {
  	
-...
+//...
  	
  	private void setFontBox(){
 		fontsComboBox = new JComboBox<String>(fonts);		
 		toolbar.add(fontscomboBox);		
  	}
  	
-...
+//...
 
  }
   \end{lstlisting}
@@ -300,7 +301,7 @@ Da unser \lstinline[basicstyle=\ttfamily]{fonts}--Array noch leer ist, müssen wi
   \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
  public class ToolbarPanel extends JPanel {
  	
- ...
+ //...
  	
  	private void setFontBox(){
  		GraphicsEnvironment enviroment = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -309,7 +310,7 @@ Da unser \lstinline[basicstyle=\ttfamily]{fonts}--Array noch leer ist, müssen wi
 		toolbar.add(fontscomboBox);		
  	}
  	
-...
+//...
  	
  }
   \end{lstlisting}
@@ -329,18 +330,7 @@ In diesem Tutorial entscheiden wir uns für die letzte Möglichkeit, da diese uns 
   \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
  public class ToolbarPanel extends JPanel {
  	
- 	JToolBar toolbar;
- 	private JToggleButton boldButton = new JToggleButton();
- 	private JToggleButton italicButton = new JToggleButton();
- 	private JToggleButton underlineButton = new JToggleButton();
- 	
- 	public ToolbarPanel(){
- 		
- 		toolbar = new JToolBar();
- 		this.setButtons();
- 		this.add(toolbar);
- 		
- 	}
+//...
  	
  	private void setButtons(){
  	
@@ -351,14 +341,166 @@ In diesem Tutorial entscheiden wir uns für die letzte Möglichkeit, da diese uns 
  		boldButton.setIcon(new ImageIcon("src/img/font_bold_icon&32.png"));
  		italicButton.setIcon(new ImageIcon("src/img/font_italic_icon&32.png"));
  		underlineButton.setIcon(new ImageIcon("src/img/font_underline_icon&32.png"));
+ 		
+ 		boldButton.addItemListener(new ItemListener() {...});
+  		italicButton.addItemListener(new ItemListener() {...});
+  	 	underlineButton.addItemListener(new ItemListener() {...});
  	}
  	
  }
-
-
 \end{lstlisting}
 
-- panel muss toolbar kennen.
+Mithilfe der Methode \lstinline[basicstyle=\ttfamily]{addItemListener(...)} wird einem Button ein neuer ItemListener hinzugefügt. Für die anonyme innere Klasse ist nichts weiter notwendig, als diese innerhalb der Methode zu definieren. Bisher tut unsere Klasse noch nichts, außer zu existieren. Indem wir aber eine odere mehrere ihrer Methoden überschreiben, können wir (Re-)Aktionen der Buttons definieren. 
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 	
+//...
+ 	
+ 	private void setButtons(){
+ 	
+	 	//...
+ 		
+ 		boldButton.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				//..
+			}
+			
+ 		});
+ 		//...
+ 	}
+ 	
+ }
+\end{lstlisting}
+
+Wie im oben stehenden Code--Listing zu sehen, wird die Methode  \lstinline[basicstyle=\ttfamily]{itemStateChanged(ItemEvent e)} überschrieben. Die Methode wird immer dann aufgerufen, wenn ein Button geklickt und wieder losgelassen wurde. Über \lstinline[basicstyle=\ttfamily]{ItemEvent e} können wir nun feststellen, wie der aktuelle Status des \enquote{zugehörigen} Buttons ist.
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 
+ 	boolean bold;
+ 	
+//...
+ 	
+ 	private void setButtons(){
+ 	
+	 	//...
+ 		
+ 		boldButton.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==e.SELECTED){
+				bold = true;
+				} else {
+				bold = false;
+				}
+			}
+			
+ 		});
+ 		//...
+ 	}
+ 	
+ }
+\end{lstlisting}
+
+Möglich wird dies mit der Instanzmethode \lstinline[basicstyle=\ttfamily]{getStateChange()}, welche die Konstante \lstinline[basicstyle=\ttfamily]{SELECTED} zurückgibt, falls ein Button angeklickt ist. Dies kann für die anderen Buttons analog umgesetzt werden. In unserem Post-It speichern wir den aktuellen Zustand der Buttons in boolschen Variablen, um später darauf zugreifen zu können.
+
+Die Implementierung für das Dropdown--Menü funktioniert analog: Zunächst wird ein Listener hinzugefügt und anschließend eine (bzw. mehrere) Methoden überschrieben. Der Unterschied besteht darin, dass diesmal ein Listener von Typ \lstinline[basicstyle=\ttfamily]{PopupMenuListener} verwendet werden muss, da ein Listener für JComboBox anders auf Eingaben reagieren muss. Dafür müssen die Abstrakten Methoden \lstinline[basicstyle=\ttfamily]{popupMenuWillBecomeVisible(PopupMenuEvent e)}, \lstinline[basicstyle=\ttfamily]{popupMenuWillBecomeInvisible(PopupMenuEvent e)} und  \lstinline[basicstyle=\ttfamily]{popupMenuCanceled(PopupMenuEvent e)} zwingend überschrieben werden. Für unseren Anwendungsfall interessiert aber nur \lstinline[basicstyle=\ttfamily]{popupMenuWillBecomeInvisible(PopupMenuEvent e)}. Sobald das DropDown-Menü geschlossen wurde, wollen wir nämlich die zuletzt ausgewählte Schriftart im String \lstinline[basicstyle=\ttfamily]{font} speichern.
+
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 
+ 	String[] fonts;
+ 	String font;
+ 	
+//...
+ 	
+private void setFontBox() {
+		GraphicsEnvironment enviroment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		fonts = enviroment.getAvailableFontFamilyNames();
+		fontsComboBox = new JComboBox<String>(fonts);		
+		fontsComboBox.addPopupMenuListener(new PopupMenuListener() {
+			
+			@Override
+			public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+			}
+			
+			@Override
+			public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+				font =fontsComboBox.getSelectedItem().toString();
+			}
+			
+			@Override
+			public void popupMenuCanceled(PopupMenuEvent e) {			
+			}
+		});
+		
+		fontsComboBox.setSelectedItem(note.getFontFamily());
+	}
+
+ 	
+ }
+\end{lstlisting}
+
+\subsection{Verknüpfung von Toolbar und Textpane}
+
+Im letzten Schritt müssen wir dafür sorgen, dass unser Textpane die aktuellen Einstellungen, die wir auf der Toolbar getätigt haben und die unsere Listener in den lokalen Variablen gespeichert haben, vom Textpane verwendet werden. 
+
+Dafür erstellen wir uns zunächst Getter-Methoden für unsere drei Button Boolean-Felder und das Schriftart String-Feld. In den meisten IDE's geht das mit ein paar Menü-klicks (einfach mal Googlen. In Eclipse geht das recht einfach mit einem Klick auf \textit{Source} -> \textit{Generate Getters and Setters}). Das Ergebnis sollten folgende vier Getter-Methoden sein:
+
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class ToolbarPanel extends JPanel {
+ 
+ 		String font;
+ 	 	boolean bold;
+ 	 	boolean italic;
+ 	 	boolean underlined;
+ 	 	
+//...
+
+ 		public String getFont() {
+ 			return font;
+ 		}
+ 	
+ 		public boolean isBold() {
+ 			return bold;
+ 		}
+ 	
+ 		public boolean isItalic() {
+ 			return italic;
+ 		}
+ 	
+ 		public boolean isUnderlined() {
+ 			return underlined;
+ 		}
+ 	
+ }
+\end{lstlisting}
+
+Damit haben wir die Schnittstellen auf der Seite der Klasse \lstinline[basicstyle=\ttfamily]{ToolbarPanel} gebaut. Nun wechseln wir in die Klasse \lstinline[basicstyle=\ttfamily]{NotesTextpane}. 
+
+Da die Klasse noch leer ist, müssen wir uns nun über zwei Dinge Gedanken machen: Einerseits müssen wir eine Möglichkeit finden, wie wir die TextSettings in der Klasse setzen und andererseits ist es notwendig an einem geeigneten Zeitpunkt die Settings zu laden.
+
+\subsection{TextSetting aktualisieren}
+
+Mit einem Blick in die API von \lstinline[basicstyle=\ttfamily]{JTextPane} (die NotesTextPane erweitert), findet man die Methode setCharacterAttributes(...), die wie folgt beschrieben ist:
+
+\subparagraph{public void setCharacterAttributes(AttributeSet attr,
+                          boolean replace)}
+
+Applies the given attributes to character content. If there is a selection, the attributes are applied to the selection range. If there is no selection, the attributes are applied to the input attribute set which defines the attributes for any new text that gets inserted.
+
+Parameters:
+\begin{itemize}
+\item attr - the attributes
+\item replace - if true, then replace the existing attributes first
+\end{itemize}
+
+Mit dieser Methode kann man die Attribute der Zeichen verändern, die man eintippt. Zusätzlich werden markierte Bereiche überschrieben. Sehr gut, denn das ist genau das was wir wollen. Was wir jetzt noch brauchen ist ein AttributeSet, das wir der Methode übergeben.
 
 
 
