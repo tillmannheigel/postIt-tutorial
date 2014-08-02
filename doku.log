@@ -1,14 +1,21 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.7)  31 JUL 2014 15:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.8.2)  2 AUG 2014 17:14
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **doku.tex
-(./doku.tex
-LaTeX2e <2014/05/01>
-Babel <3.9k> and hyphenation patterns for 78 languages loaded.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+(D:\tillmanns_zeug\postIt-tutorial\doku.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,46 +30,48 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2014/04/30 v1.2b Input encoding file
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2014/04/30 v1.2b Input encoding file
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
+File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
-(/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2014/03/24 3.9k The Babel package
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/babel-german/ngerman.ldf
-Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
+Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/babel-german/ngermanb.ldf
-Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2014/03/24 3.9k Babel common definitions
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
 \l@naustrian = a dialect from \language\l@ngerman 
-\l@nswissgerman = a dialect from \language\l@ngerman 
-Package babel Info: Making " an active character on input line 88.
-)))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package babel Info: Making " an active character on input line 92.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\csquotes\csquotes.sty"
 Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/etex-pkg/etex.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
 \et@xins=\count88
 )
 \etb@tempcnta=\count89
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 \csq@reset=\count90
@@ -73,13 +82,13 @@ Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \csq@tshold=\count95
 \csq@ltx@everypar=\toks17
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/csquotes/csquotes.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\csquotes\csquotes.def"
 File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/csquotes/csquotes.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\csquotes\csquotes.cfg"
 File: csquotes.cfg 
 )
 Package csquotes Info: Option 'babel' depreciated.
@@ -87,24 +96,24 @@ Package csquotes Info: Option 'babel' depreciated.
 Package csquotes Info: Enabling multilingual quotes.
 Package csquotes Info: Redefining alias 'german' -> 'german/quotes'.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen104
 ))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen105
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count96
@@ -145,37 +154,37 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count108
@@ -183,10 +192,10 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty
+(C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -200,7 +209,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+(C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
 \lst@mode=\count109
 \lst@gtempboxa=\box28
 \lst@token=\toks23
@@ -214,24 +223,24 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 \lst@lineno=\count114
 \lst@maxwidth=\dimen118
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+(C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
 \c@lstnumber=\count115
 \lst@skipnumbers=\count116
 \lst@framebox=\box29
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+(C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
 File: listings.cfg 2014/03/04 1.5c listings configuration
 ))
 Package: listings 2014/03/04 1.5c (Carsten Heinz)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+(C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2014/03/04 1.5c listings language file
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(./doku.aux
+(D:\tillmanns_zeug\postIt-tutorial\doku.aux
 
 LaTeX Warning: Label `3' multiply defined.
 
@@ -239,8 +248,6 @@ LaTeX Warning: Label `3' multiply defined.
 LaTeX Warning: Label `3' multiply defined.
 
 )
-\openout1 = `doku.aux'.
-
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
@@ -253,7 +260,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
- (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+ (C:\Users\Anja\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen119
@@ -266,69 +273,21 @@ LaTeX Font Info:    ... okay on input line 11.
 \MPnumerator=\count121
 \makeMPintoPDFobject=\count122
 \everyMPtoPDFconversion=\toks25
-) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 \c@lstlisting=\count123
 LaTeX Font Info:    Try loading font information for U+msa on input line 15.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 15.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <flaeche.png, id=1, 256.3176pt x 204.765pt>
 File: flaeche.png Graphic file (type png)
  <use flaeche.png>
-Package pdftex.def Info: flaeche.png used on input line 28.
+Package pdftex.def Info: flaeche.png used on input line 31.
 (pdftex.def)             Requested size: 256.31697pt x 204.76448pt.
 
 
@@ -337,7 +296,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <flaeche_toolbar.png, id=2, 256.3176pt x 204.765pt>
 File: flaeche_toolbar.png Graphic file (type png)
  <use flaeche_toolbar.png>
-Package pdftex.def Info: flaeche_toolbar.png used on input line 39.
+Package pdftex.def Info: flaeche_toolbar.png used on input line 42.
 (pdftex.def)             Requested size: 256.31697pt x 204.76448pt.
 
 
@@ -348,7 +307,7 @@ File: flaeche_toolbar_buttons_dropdown.png Graphic file (type png)
 
 <use flaeche_toolbar_buttons_dropdown.png>
 Package pdftex.def Info: flaeche_toolbar_buttons_dropdown.png used on input lin
-e 49.
+e 52.
 (pdftex.def)             Requested size: 257.76237pt x 206.69168pt.
 
 
@@ -356,297 +315,368 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 62.
+{C:/Users/Anja/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
- [2 <./flaeche.png>] [3 <./flaeche_toolbar.png>]
-<BorderLayout.jpg, id=28, 432.86719pt x 267.24844pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
+ [2 <D:/tillmanns_zeug/postIt-tutorial/flaeche.png>] [3 <D:/tillmanns_zeug/post
+It-tutorial/flaeche_toolbar.png>] <BorderLayout.jpg, id=27, 432.86719pt x 267.2
+4844pt>
 File: BorderLayout.jpg Graphic file (type jpg)
- <use BorderLayout.jpg>
-Package pdftex.def Info: BorderLayout.jpg used on input line 118.
+
+<use BorderLayout.jpg>
+Package pdftex.def Info: BorderLayout.jpg used on input line 124.
 (pdftex.def)             Requested size: 345.0pt x 213.00793pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./flaeche_toolbar_buttons_dropdown.png>]
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 134--135
+[4 <D:/tillmanns_zeug/postIt-tutorial/flaeche_toolbar_buttons_dropdown.png>]
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 140--141
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 138--139
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 144--145
 [][][][][][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 142.
-[5 <./BorderLayout.jpg>]
-Overfull \hbox (33.00385pt too wide) in paragraph at lines 170--171
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 148.
+[5 <D:/tillmanns_zeug/postIt-tutorial/BorderLayout.jpg>]
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 176--177
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (45.00397pt too wide) in paragraph at lines 171--172
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 177--178
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (63.00415pt too wide) in paragraph at lines 172--174
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 178--180
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (153.00507pt too wide) in paragraph at lines 188--189
+Overfull \hbox (153.00507pt too wide) in paragraph at lines 194--195
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (177.00531pt too wide) in paragraph at lines 189--190
+Overfull \hbox (177.00531pt too wide) in paragraph at lines 195--196
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (213.00568pt too wide) in paragraph at lines 190--191
+Overfull \hbox (213.00568pt too wide) in paragraph at lines 196--197
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [6]
-Overfull \hbox (5.08984pt too wide) in paragraph at lines 198--199
+Overfull \hbox (5.08984pt too wide) in paragraph at lines 204--205
 \OT1/cmr/m/n/10 den al-ten Zu-stand an-neh-men. F[]ur un-se-re An-wen-dungsf[]a
 lle ist der [][][]
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 207.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 213.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omlcmr.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 207.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 213.
 
-Overfull \hbox (5.50995pt too wide) in paragraph at lines 233--234
+Overfull \hbox (5.50995pt too wide) in paragraph at lines 239--240
 \OT1/cmr/m/n/10 erm[]oglicht. Zur Aus-wahl ste-hen uns hier ver-schie-de-ne Ein
 -ga-be-fel-der: [][][],
  []
 
 [7]
-Overfull \hbox (39.0039pt too wide) in paragraph at lines 250--251
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 256--257
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (15.00366pt too wide) in paragraph at lines 251--252
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 257--258
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 255--256
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 261--262
 [][][][][][][][][][][] 
  []
 
-<fenster.png, id=44, 311.2428pt x 229.8186pt>
+<fenster.png, id=43, 311.2428pt x 229.8186pt>
 File: fenster.png Graphic file (type png)
  <use fenster.png>
-Package pdftex.def Info: fenster.png used on input line 264.
+Package pdftex.def Info: fenster.png used on input line 270.
 (pdftex.def)             Requested size: 345.0pt x 254.7615pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8]
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 290--291
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 299--300
 [][][][][][][][][][][][][][][][][] 
  []
 
-[9 <./fenster.png>]
-Overfull \hbox (42.61017pt too wide) in paragraph at lines 299--300
+[9 <D:/tillmanns_zeug/postIt-tutorial/fenster.png>]
+Overfull \hbox (42.61017pt too wide) in paragraph at lines 308--309
 \OT1/cmr/m/n/10 Daf[]ur m[]ussen wir uns zu-erst mit der Factory--Methode [][][
 ][]
  []
 
 
-Overfull \hbox (2.88794pt too wide) in paragraph at lines 299--300
+Overfull \hbox (2.88794pt too wide) in paragraph at lines 308--309
 \OT1/cmr/m/n/10 tho-de [][][][] auf al-le dem Sys-tem be-kann-ten Schrift-
  []
 
 
-Overfull \hbox (249.00604pt too wide) in paragraph at lines 307--308
+Overfull \hbox (249.00604pt too wide) in paragraph at lines 316--317
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (45.00397pt too wide) in paragraph at lines 308--309
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 317--318
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 309--310
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 318--319
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (8.14064pt too wide) in paragraph at lines 322--323
+Overfull \hbox (8.14064pt too wide) in paragraph at lines 331--332
 \OT1/cmr/m/n/10 Da wir mit ei-ner in-ter-ak-ti-ven gra-phi-schen Ober-fl[]ache 
 ar-bei-ten, die in Abh[]angigkeit
  []
 
 
-Overfull \hbox (6.88947pt too wide) in paragraph at lines 324--325
+Overfull \hbox (6.88947pt too wide) in paragraph at lines 333--334
 []\OT1/cmr/m/n/10 Jedes un-se-rer in-ter-ak-ti-ven Tool-bar Ele-men-te (die But
 -tons und das DropDown--
  []
 
 [10]
-Overfull \hbox (153.00507pt too wide) in paragraph at lines 341--342
+Overfull \hbox (153.00507pt too wide) in paragraph at lines 350--351
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (177.00531pt too wide) in paragraph at lines 342--343
+Overfull \hbox (177.00531pt too wide) in paragraph at lines 351--352
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (213.00568pt too wide) in paragraph at lines 343--345
+Overfull \hbox (213.00568pt too wide) in paragraph at lines 352--354
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (69.00421pt too wide) in paragraph at lines 345--346
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 354--355
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (81.00433pt too wide) in paragraph at lines 346--347
+Overfull \hbox (81.00433pt too wide) in paragraph at lines 355--356
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (99.00452pt too wide) in paragraph at lines 347--348
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 356--357
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (33.00385pt too wide) in paragraph at lines 364--366
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 373--375
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (57.00409pt too wide) in paragraph at lines 367--368
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 376--377
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (102.30579pt too wide) in paragraph at lines 378--379
+Overfull \hbox (102.30579pt too wide) in paragraph at lines 387--388
 []\OT1/cmr/m/n/10 Wie im oben ste-hen-den Code--Listing zu se-hen, wird die Me-
 tho-de [][][][][][][][]
  []
 
 [11]
-Overfull \hbox (33.00385pt too wide) in paragraph at lines 391--393
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 400--402
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (57.00409pt too wide) in paragraph at lines 394--395
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 403--404
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (57.00409pt too wide) in paragraph at lines 395--396
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 404--405
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (132.497pt too wide) in paragraph at lines 411--412
+Overfull \hbox (132.497pt too wide) in paragraph at lines 425--426
 [][][][][][][][]\OT1/cmr/m/n/10 , [][][][][][][][]
  []
 
 
-Overfull \hbox (112.58156pt too wide) in paragraph at lines 411--412
+Overfull \hbox (112.58156pt too wide) in paragraph at lines 425--426
 \OT1/cmr/m/n/10 F[]ur un-se-ren An-wen-dungs-fall in-ter-es-siert aber nur [][]
 [][][][][][].
  []
 
 [12]
-Overfull \hbox (249.00604pt too wide) in paragraph at lines 423--424
+Overfull \hbox (249.00604pt too wide) in paragraph at lines 437--438
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (45.00397pt too wide) in paragraph at lines 424--425
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 438--439
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (21.00372pt too wide) in paragraph at lines 425--426
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 439--440
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (111.00464pt too wide) in paragraph at lines 426--428
+Overfull \hbox (111.00464pt too wide) in paragraph at lines 440--442
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (147.005pt too wide) in paragraph at lines 429--430
+Overfull \hbox (147.005pt too wide) in paragraph at lines 443--444
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (159.00513pt too wide) in paragraph at lines 433--434
+Overfull \hbox (159.00513pt too wide) in paragraph at lines 447--448
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (141.00494pt too wide) in paragraph at lines 434--435
-[][][][][][][][][][][][] 
+Overfull \hbox (177.00531pt too wide) in paragraph at lines 448--449
+[][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (93.00446pt too wide) in paragraph at lines 438--439
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 453--454
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (63.00415pt too wide) in paragraph at lines 442--443
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 457--458
+[][][][][][][][][][][][][][][] 
+ []
+
+[13]
+Overfull \hbox (20.39417pt too wide) in paragraph at lines 493--494
+\OT1/cmr/m/n/10 erbt. Die Klas-se be-sitzt das Feld [][][] vom Typ [][][]
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 498--500
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 501--502
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (87.0044pt too wide) in paragraph at lines 513--515
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (249.00604pt too wide) in paragraph at lines 515--516
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 516--517
 [][][][][][][][][][][] 
  []
 
-[13] [14] (./doku.aux)
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 517--518
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 518--519
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 519--520
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 520--521
+[][][][][][][][][][][][][][][] 
+ []
+
+[14]
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 543--544
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 557--558
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 563--564
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 564--565
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[15] [16] (D:\tillmanns_zeug\postIt-tutorial\doku.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6065 strings out of 493117
- 80750 string characters out of 6135434
- 198469 words of memory out of 5000000
- 9427 multiletter control sequences out of 15000+600000
- 10639 words of font info for 42 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 38i,8n,40p,1007b,1606s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on doku.pdf (14 pages, 254341 bytes).
+ 5612 strings out of 493921
+ 72500 string characters out of 3147286
+ 194402 words of memory out of 3000000
+ 8839 multiletter control sequences out of 15000+200000
+ 10639 words of font info for 42 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 30i,8n,40p,1007b,1606s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on doku.pdf (16 pages, 283135 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

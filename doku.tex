@@ -14,11 +14,14 @@
 
 In diesem Tutorial werden wir lernen wie man mit der Programmiersprache Java und der in Java integrierten Bibliothek\footnote{Eine Programmbibliothek ist eine Sammlung von bereitgestellten Klassen und Funktionen, die einen bestimmten Zweck erfüllen. Im Falle von \lstinline[basicstyle=\ttfamily]{javax.swing.*} das Darstellen einer graphischen Oberfläche für eine Programm.} \lstinline[basicstyle=\ttfamily]{javax.swing.*} ein Fenster erstellt mit welchem man Text formatieren und darstellen  kann.
 
-\section{ GUI}
+\section{Planung der GUI}
 
 Als GUI (Abk. GUI von graphical user interface) wird die Benutzerschnittstelle eines computerprogramms bezeichnet, mit der ein Mensch mittels Eingabegerät-en (z.B. Maus oder Touchscreen) interagiert. Für ein Programm, das eine grafische Oberfläche bekommen soll, macht es Sinn sich zuallererst Gedanken darüber machen, was die Hauptfunktionen der Anwendung sind und wie diese auf einer graphischen Benutzeroberfläche dargestellt werden können. Die dabei entstehenden Skizzen nennt man auch \enquote{Mock-Ups}\footnote{siehe dazu http://de.wikipedia.org/wiki/Mock-up}. Aus den Mock-ups leitet man anschließend nicht-funktionalen Anforderungen, die das Aussehen der fertigen Anwendung beschreiben ab.
 
 \subsection{Ein erstes Mock-up}
+
+% Anspruch: 1/6
+% Lerneffekt: 2/6
 
 Für unser Programm, die Post-It--Anwendung steht ganz klar die Schreibfläche, also das eigentliche Post-It im Mittelpunkt. Damit die Anwender die Schreibfläche auch als Post-It erkennen, sollte sie im klassischen gelb dargestellt werden (siehe Abbildung). Darauf soll man später seine Notizen schreiben können.
 
@@ -64,7 +67,10 @@ Große Firmen wie Apple oder Google haben in den vergangenen Jahren sehr viel Gel
 \item Der größere Bereich darunter rerpäsentiert einen Notizzettel. Er soll eine gelbe Farbe besitzen. Weiterhin soll man Text eingeben können und diesen unterschiedlich(!) formatieren können. 
 \end{itemize}
 
-\subsection{Implementierung mit javax.swing}
+\section{Implementierung mit javax.swing}
+
+%Anspruch: 3/6
+%Lerneffekt: 3/6
 
 Die Programmbibliothek javax.swing (ab jetzt nur noch Swing genannt), ist eine Bibliothek, die im Java Developer Kit enthalten ist, die es relativ einfach ermöglicht Grafische Oberflächen mit Java code zu erzeugen. Neben Swing existieren noch einige weitere Bibliotheken, die Oberflächen erzeugen können, in diesem Beispiel möchten wir uns aber auf Swing beschränken.
 
@@ -274,6 +280,9 @@ Wenn man probiert auf die Buttons zu klicken passiert allerdings nichts. Das lie
 \newpage
 \section{Anwendungs--Logik}
 
+%Anspruch: 5/6
+%Lerneffekt: 6/6
+
 Der \enquote{Rahmen} unserer Anwendung steht bereits und sieht auch schon ganz gut aus. Was aber noch fehlt, sind die Methoden, mit welchen wir unsere Toolbar funktionsfähig machen können.
 
 \subsection{System--Schriftarten laden}
@@ -397,16 +406,21 @@ Wie im oben stehenden Code--Listing zu sehen, wird die Methode  \lstinline[basic
 				} else {
 				bold = false;
 				}
+				this.updateAttributes();
 			}
 			
  		});
  		//...
  	}
  	
+ 	private void updateAttributes(){
+ 		//do some magic stuff here later
+ 	}
+ 	
  }
 \end{lstlisting}
 
-Möglich wird dies mit der Instanzmethode \lstinline[basicstyle=\ttfamily]{getStateChange()}, welche die Konstante \lstinline[basicstyle=\ttfamily]{SELECTED} zurückgibt, falls ein Button angeklickt ist. Dies kann für die anderen Buttons analog umgesetzt werden. In unserem Post-It speichern wir den aktuellen Zustand der Buttons in boolschen Variablen, um später darauf zugreifen zu können.
+Möglich wird dies mit der Instanzmethode \lstinline[basicstyle=\ttfamily]{getStateChange()}, welche die Konstante \lstinline[basicstyle=\ttfamily]{SELECTED} zurückgibt, falls ein Button angeklickt ist. Dies kann für die anderen Buttons analog umgesetzt werden. In unserem Post-It speichern wir den aktuellen Zustand der Buttons in boolschen Variablen, um später darauf zugreifen zu können. Außerdem rufen wir, weil das später nötig sein wird, die Methode \lstinline[basicstyle=\ttfamily]{updateAttributes()} auf.
 
 Die Implementierung für das Dropdown--Menü funktioniert analog: Zunächst wird ein Listener hinzugefügt und anschließend eine (bzw. mehrere) Methoden überschrieben. Der Unterschied besteht darin, dass diesmal ein Listener von Typ \lstinline[basicstyle=\ttfamily]{PopupMenuListener} verwendet werden muss, da ein Listener für JComboBox anders auf Eingaben reagieren muss. Dafür müssen die Abstrakten Methoden \lstinline[basicstyle=\ttfamily]{popupMenuWillBecomeVisible(PopupMenuEvent e)}, \lstinline[basicstyle=\ttfamily]{popupMenuWillBecomeInvisible(PopupMenuEvent e)} und  \lstinline[basicstyle=\ttfamily]{popupMenuCanceled(PopupMenuEvent e)} zwingend überschrieben werden. Für unseren Anwendungsfall interessiert aber nur \lstinline[basicstyle=\ttfamily]{popupMenuWillBecomeInvisible(PopupMenuEvent e)}. Sobald das DropDown-Menü geschlossen wurde, wollen wir nämlich die zuletzt ausgewählte Schriftart im String \lstinline[basicstyle=\ttfamily]{font} speichern.
 
@@ -431,7 +445,8 @@ private void setFontBox() {
 			
 			@Override
 			public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
-				font =fontsComboBox.getSelectedItem().toString();
+				this.font = fontsComboBox.getSelectedItem().toString();
+				this.updateAttributes();
 			}
 			
 			@Override
@@ -439,7 +454,7 @@ private void setFontBox() {
 			}
 		});
 		
-		fontsComboBox.setSelectedItem(note.getFontFamily());
+		fontsComboBox.setSelectedItem("Comic Sans MS");
 	}
 
  	
@@ -448,42 +463,13 @@ private void setFontBox() {
 
 \subsection{Verknüpfung von Toolbar und Textpane}
 
-Im letzten Schritt müssen wir dafür sorgen, dass unser Textpane die aktuellen Einstellungen, die wir auf der Toolbar getätigt haben und die unsere Listener in den lokalen Variablen gespeichert haben, vom Textpane verwendet werden. 
+Damit wir die Schriftart in JTextPane anpassen können, erstellen die Klasse \lstinline[basicstyle=\ttfamily]{NotesTextpane}, die JTextPane erweitert. 
 
-Dafür erstellen wir uns zunächst Getter-Methoden für unsere drei Button Boolean-Felder und das Schriftart String-Feld. In den meisten IDE's geht das mit ein paar Menü-klicks (einfach mal Googlen. In Eclipse geht das recht einfach mit einem Klick auf \textit{Source} -> \textit{Generate Getters and Setters}). Das Ergebnis sollten folgende vier Getter-Methoden sein:
-
-  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
- public class ToolbarPanel extends JPanel {
+ \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class NotesTextPane extends JTextPane {
  
- 		String font;
- 	 	boolean bold;
- 	 	boolean italic;
- 	 	boolean underlined;
- 	 	
-//...
-
- 		public String getFont() {
- 			return font;
- 		}
- 	
- 		public boolean isBold() {
- 			return bold;
- 		}
- 	
- 		public boolean isItalic() {
- 			return italic;
- 		}
- 	
- 		public boolean isUnderlined() {
- 			return underlined;
- 		}
- 	
  }
-\end{lstlisting}
-
-Damit haben wir die Schnittstellen auf der Seite der Klasse \lstinline[basicstyle=\ttfamily]{ToolbarPanel} gebaut. Nun wechseln wir in die Klasse \lstinline[basicstyle=\ttfamily]{NotesTextpane}. 
-
-Da die Klasse noch leer ist, müssen wir uns nun über zwei Dinge Gedanken machen: Einerseits müssen wir eine Möglichkeit finden, wie wir die TextSettings in der Klasse setzen und andererseits ist es notwendig an einem geeigneten Zeitpunkt die Settings zu laden.
+ \end{lstlisting}
 
 \subsection{TextSetting aktualisieren}
 
@@ -500,8 +486,101 @@ Parameters:
 \item replace - if true, then replace the existing attributes first
 \end{itemize}
 
-Mit dieser Methode kann man die Attribute der Zeichen verändern, die man eintippt. Zusätzlich werden markierte Bereiche überschrieben. Sehr gut, denn das ist genau das was wir wollen. Was wir jetzt noch brauchen ist ein AttributeSet, das wir der Methode übergeben.
+Mit dieser Methode kann man die Attribute der Zeichen verändern, die man eintippt. Zusätzlich werden markierte Bereiche überschrieben. Das ist genau das was wir brauchen. Was wir jetzt noch brauchen ist ein \lstinline[basicstyle=\ttfamily]{AttributeSet}, das wir der Methode übergeben.
+
+Da \lstinline[basicstyle=\ttfamily]{AttributeSet} jedoch lediglich ein Interface darstellt, das verbindlich festlegt welche Methoden und Felder implementiert werden müssen, ist es notwendig entweder eine eigene Klasse zu entwerfen, oder auf eine schon vorhandene Klasse zurückgreifen, die dieses Interface einbindet. Nach einem erneuten Blick in der API, findet man recht schnell eine Referenz auf die Klasse \lstinline[basicstyle=\ttfamily]{SimpleAttributeSet}.
+
+Wir erstellen uns also eine neue Klasse \lstinline[basicstyle=\ttfamily]{NotesTextPane}, die von JTextPane erbt. Die Klasse besitzt das Feld \lstinline[basicstyle=\ttfamily]{currentAttributes} vom Typ \lstinline[basicstyle=\ttfamily]{SimpleAttributeSet} und eine Methode \lstinline[basicstyle=\ttfamily]{loadAttributes()}, die uns ein neues \lstinline[basicstyle=\ttfamily]{{SimpleAttributeSet} mit den von Anwender ausgewählten Einstellungen erstellt und anschließend auf den Text anwendet:
+
+ \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class NotesTextPane extends JTextPane {
+ 
+ SimpleAttributeSet currentAttributes = new SimpleAttributeSet();
+
+	public void loadAttributes() {
+		this.setCharacterAttributes(currentAttributes, true);
+	}
+}
+ \end{lstlisting}
+ 
+Zusätzlich möchten wir aus unserer Klasse ToolbarPanel, die Methode loadAttributes aufrufen können und als Parameter die aktuelle Konfiguration unserer Buttons übergeben. 
+
+Dafür sind zwei Dinge notwendig: Zum einen übergeben wir im Konstruktor von ToolBarPanel die aktuelle Instanz von NotesTextPane. Zweitens müssen wir die Methode loadAttributes um die entsprechenden Parameter erweitern und in unseren currentAttributes überschreiben.
+
+ \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+ public class NotesTextPane extends JTextPane {
+ 
+ 	SimpleAttributeSet currentAttributes = new SimpleAttributeSet();
+ 
+ 	public void loadAttributes(boolean bold, boolean italic, boolean underlined, String font) {
+	 	StyleConstants.setBold(currentAttributes,bold);
+ 		StyleConstants.setItalic(currentAttributes,italic));
+ 		StyleConstants.setUnderline(currentAttributes,underlined);
+ 		StyleConstants.setFontFamily(currentAttributes,font);
+ 		this.setCharacterAttributes(currentAttributes,true);
+ 	}	
+ }
+ \end{lstlisting}
+
+Die Klasse ToolBarPanel erweitern wir wie folgt:
+
+\begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+  public class ToolbarPanel extends JPanel {
+  
+ //...
+ NotesTextPane textpane;
+  
+  public ToolbarPanel(NotesTextPane ntp){
+  
+  textpane = ntp;
+  toolbar = new JToolBar();
+  this.setButtons();
+  this.add(toolbar);
+  
+  }
+  
+  privat void updateAttributes(){
+  	textpane.loadAttributes(bold,italic,underlined,fonts);
+  }
+}
+  
+\end{lstlisting}
 
 
+unsere Frame--Klasse anpassen müssen. Die Klasse JTextPane, die bisher unsere Schreibfläche repräsentiert hat, muss jetzt durch die neue Klasse NotesTextPane ersetzt werden. Wir wechseln daher an dieser Stelle kurz zurück in die Klasse NotesFrame und nehmen folgende Änderungen vor:
 
+  \begin{lstlisting}[frame=single,keywordstyle=\color{blue}]
+  public class NotesFrame extends JFrame {
+  
+  JPanel mainPanel;
+  ToolbarPanel toolbar;
+  //JTextPane textpane; //alt! Zeile kann gelöscht werden...
+  NotesTextPane textpane; //neu!
+  
+  public NotesFrame(){	
+  
+  this.mainPanel = new JPanel();
+  //toolbar = new ToolbarPanel(); //alt! Zeile kann gelöscht werden...
+  //textpane = new JtextPane(); //alt! Zeile kann gelöscht werden...
+  textpane = new NotesTextPane(); //neu!
+  toolbar = new ToolbarPanel(textpane); //neu!
+  
+  mainPanel.add(toolbar ,BorderLayout.PAGE_START);
+  mainPanel.add(textpane,BorderLayout.CENTER);
+  this.getcontentPane().add(mainPanel);
+  
+  pack();		
+  this.setDefaultcloseOperation(EXIT_ON_CLOSE);
+  }
+  \end{lstlisting}
+  
+Achtung, nicht die Imports vergessen! 
+
+\section{Fazit}
+
+Unsere Anwendung befindet sich nun an einem Punkt, an dem man in den Testbetrieb wechseln könnte. Die Basis-Features sind implementiert und die im ersten Kapitel aufgestellten Anforderungen wurden umgesetzt: Wir haben eine Toolbar mit drei Buttons und einem Dropdown-Menü. Alle Änderungen, die wir auf der Toolbar auslösen, werden direkt im Textpane geladen.
+
+Es gibt noch einige mögliche Features, die man umsetzen könnte, wie z.B. Laden- und Speichern von Nachrichten, wechselseitiges Laden zwischen Toolbar und Textpane und damit die Möglichkeit an Textbereichen mit gleicher Schriftart und -einstellung weiterschreiben kann.
+
+Für dieses Tutorial ist der obenstehende Teil aber ausreichend, um einen kleinen Einblick in die Entwicklung einer graphischen Oberfläche und die Implementierung eines kleinen Editors zu erhalten.
 \end{document}
